@@ -2,9 +2,9 @@
 
 The [Predictive Analytics for Business](https://www.udacity.com/course/predictive-analytics-for-business-nanodegree--nd008t) Nanodegree program is designed to master a scientific approach to solving problems with data and apply predictive analytics and business intelligence to solve real-world problems. The program projects are done in Alteryx, a tool that prepares, blends, and analyzes data quickly, and Tableau, a powerful data visualization platform.
 
-## 1. Problem Solving with Analytics  
-Data analysis business contex, analytic frameworks and linear regression for .  
-[Check Project Report - Predicting Product Pricing](Project1/P1%20-%20Submission_CJ.pdf)
+## 1. Data Analytics  
+Data analysis business contex, analytic frameworks and linear regression for predicting profitability.  
+[Check Project Report - Predicting Product Catalogue Profitability](Project1/P1%20-%20Submission_CJ.pdf)
 ![](Project1/project1.png)
 ## 2. Data Wrangling  
 Data cleaning, extraction and transformation for Interquartile range (IQR) limits and outlier detection for new Shop location.  
