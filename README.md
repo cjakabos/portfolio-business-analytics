@@ -18,7 +18,12 @@ Applying and Evaluating different type of Classification models (Logistic and St
 ![](Project3/project3.png)
 
 ## 4. A/B testing  
-TODO: add information and files after submission.
+Applying A/B testing practices for evaluating a new product variant, if it will improve the performance of the existing product and will make this product more successful, showing a positive treatment effect.  
+[Check Project Report - A/B Test for a New Menu Launch](Project4/P4%20-%20Submission_CJ.pdf)  
+Data consolidation and analysis part
+![](Project4/project4_1.png)  
+A/B testing part
+![](Project4/project4_2.png)
 
 ## 5. Segmentation and Clustering  
 TODO: add information and files after submission.     
