@@ -26,4 +26,11 @@ A/B testing part
 ![](Project4/Project4_2.png)
 
 ## 5. Segmentation and Clustering  
-TODO: add information and files after submission.     
+Understand the difference between localization, standardization, and segmentation. Select the appropriate number of clusters. Build and apply a k-centroid cluster model and visualize the results.   
+[Check Project Report - Segmentation and Clustering for new Store location and Product offering](Project5/P5%20-%20Submission_CJ.pdf)  
+K-Centroid Diagnostics and Cluster Analysis part
+![](Project5/Project5_1.png)  
+Predictive model comparison and Scoring
+![](Project5/Project5_2.png)    
+ETS and ARIMA forecasting
+![](Project5/Project5_3.png)  
