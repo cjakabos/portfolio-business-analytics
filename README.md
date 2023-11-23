@@ -34,3 +34,8 @@ Predictive model comparison and Scoring
 ![](Project5/Project5_2.png)    
 ETS and ARIMA forecasting
 ![](Project5/Project5_3.png)  
+
+## 6. Extra project: Machine learning system for Risk Assessment
+
+This is a Machine Learning Model Scoring and Monitoring project. The problem is to create, deploy, and monitor a risk assessment ML model that will estimate the attrition risk of each of the company's clients. Also setting up processes to re-train, re-deploy, monitor and report on the ML model.
+[Check Project Report - Machine learning system for Risk Assessment](Project6_Extra/README.md)  
