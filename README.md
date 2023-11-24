@@ -1,6 +1,9 @@
 # Portfolio-business-analytics
 
-The [Predictive Analytics for Business](https://www.udacity.com/course/predictive-analytics-for-business-nanodegree--nd008t) Nanodegree program is designed to master a scientific approach to solving problems with data and apply predictive analytics and business intelligence to solve real-world problems. The program projects are done in Alteryx, a tool that prepares, blends, and analyzes data quickly, and Tableau, a powerful data visualization platform.
+The [Predictive Analytics for Business](https://www.udacity.com/course/predictive-analytics-for-business-nanodegree--nd008t) Nanodegree program is designed to master a scientific approach to solving problems with data and apply predictive analytics and business intelligence to solve real-world problems. The program projects are done in Alteryx, a tool that prepares, blends, and analyzes data quickly, and Tableau, a powerful data visualization platform.  
+As an extracurricular activity, I have also created a Machine Learning pipeline for Dynamic Risk Scoring (with Python, pandas, scikit-learn and matplotlib), where the model continuously re-trained and redeployed, based on newly added data, thus providing continuous monitoring, adaptive scoring and reporting. Details:  
+[Check Project - Machine learning system for Risk Assessment](Project6_Extra/README.md) 
+
 
 # CERTIFICATE OF COMPLETITION
   [Click here for checking the Nanodegree certificate](https://confirm.udacity.com/e/3ac984b2-6128-11ee-a6fe-9be76f9bc811)
@@ -41,7 +44,7 @@ ETS and ARIMA forecasting
 ## 6. Extra project: Machine learning system for Risk Assessment
 
 This is a Machine Learning Model Scoring and Monitoring project. The problem is to create, deploy, and monitor a risk assessment ML model that will estimate the attrition risk of each of the company's clients. Also setting up processes to re-train, re-deploy, monitor and report on the ML model.
-[Check Project Report - Machine learning system for Risk Assessment](Project6_Extra/README.md)  
+[Check Project - Machine learning system for Risk Assessment](Project6_Extra/README.md)  
   
 <p align="center">
 	<img src="Project6_Extra/images/general_view.png" >
