@@ -3,7 +3,7 @@
 The [Predictive Analytics for Business](https://www.udacity.com/course/predictive-analytics-for-business-nanodegree--nd008t) Nanodegree program is designed to master a scientific approach to solving problems with data and apply predictive analytics and business intelligence to solve real-world problems. The program projects are done in Alteryx, a tool that prepares, blends, and analyzes data quickly, and Tableau, a powerful data visualization platform.
 
 # CERTIFICATE OF COMPLETITION
-  [Click here for checking the Nanodegree certificate](confirm.udacity.com/e/3ac984b2-6128-11ee-a6fe-9be76f9bc811)
+  [Click here for checking the Nanodegree certificate](https://confirm.udacity.com/e/3ac984b2-6128-11ee-a6fe-9be76f9bc811)
 
 ## 1. Data Analytics  
 Data analysis business contex, analytic frameworks and linear regression for predicting profitability.  
