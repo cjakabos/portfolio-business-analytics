@@ -2,6 +2,9 @@
 
 The [Predictive Analytics for Business](https://www.udacity.com/course/predictive-analytics-for-business-nanodegree--nd008t) Nanodegree program is designed to master a scientific approach to solving problems with data and apply predictive analytics and business intelligence to solve real-world problems. The program projects are done in Alteryx, a tool that prepares, blends, and analyzes data quickly, and Tableau, a powerful data visualization platform.
 
+# CERTIFICATE OF COMPLETITION
+  [Click here for checking the Nanodegree certificate](confirm.udacity.com/e/3ac984b2-6128-11ee-a6fe-9be76f9bc811)
+
 ## 1. Data Analytics  
 Data analysis business contex, analytic frameworks and linear regression for predicting profitability.  
 [Check Project Report - Predicting Product Catalogue Profitability](Project1/P1%20-%20Submission_CJ.pdf)
@@ -39,3 +42,7 @@ ETS and ARIMA forecasting
 
 This is a Machine Learning Model Scoring and Monitoring project. The problem is to create, deploy, and monitor a risk assessment ML model that will estimate the attrition risk of each of the company's clients. Also setting up processes to re-train, re-deploy, monitor and report on the ML model.
 [Check Project Report - Machine learning system for Risk Assessment](Project6_Extra/README.md)  
+  
+<p align="center">
+	<img src="Project6/general_view.png" >
+</p>  
