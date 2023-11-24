@@ -44,5 +44,5 @@ This is a Machine Learning Model Scoring and Monitoring project. The problem is 
 [Check Project Report - Machine learning system for Risk Assessment](Project6_Extra/README.md)  
   
 <p align="center">
-	<img src="Project6/general_view.png" >
+	<img src="Project6_Extra/general_view.png" >
 </p>  
