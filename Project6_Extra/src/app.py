@@ -1,12 +1,18 @@
 """
 Author: Csaba Jakabos
-Date: November, 2023
+Date: December, 2023
 This script used to create the app Flask API
 """
+import os
 import re
 import subprocess
 import pandas as pd
+import psycopg as pg
+import fullprocess
+import argparse
+
 from flask import Flask, jsonify, request
+from sqlalchemy import create_engine
 
 import diagnostics
 
@@ -20,6 +26,44 @@ app.secret_key = '1652d576-484a-49fd-913a-6879acfa6ba4'
 def index():
     return "Hello World"
 
+#inspiration: https://www.geeksforgeeks.org/how-to-insert-a-pandas-dataframe-to-an-existing-postgresql-table/
+@app.route('/ingest', methods=['POST'])
+def ingest(pg=pg):
+    data = request.json
+
+    #connection = pg.connect("dbname='riskdb' user='riskmaster' host='127.0.0.1' port='5432' password='apetite'")
+    #data_df = pd.read_sql('select * from test', connection)
+
+    # for psycopg3 you need to use it with postgresql+psycopg manner, simple postgresql will use only psycopg2
+    conn_string = "postgresql+psycopg://riskmaster:apetite@localhost/riskdb"
+
+    db = create_engine(conn_string)
+    conn = db.connect()
+
+    # our dataframe
+    ingestion = data['fields']
+
+    # Create DataFrame
+    df = pd.DataFrame([ingestion])
+    df.to_sql('test', con=conn, if_exists='append', index=False)
+    conn = pg.connect("dbname='riskdb' user='riskmaster' host='127.0.0.1' port='5432' password='apetite'")
+    conn.autocommit = True
+    #cursor = conn.cursor()
+
+    #sql1 = '''select * from test;'''
+    #cursor.execute(sql1)
+
+    #for i in cursor.fetchall():
+    #    print(i)
+
+    # conn.commit()
+    conn.close()
+
+    # Initiate the full process after each ingestion to check for drift
+    #fullprocess.main('apitrigger')
+    os.system("python3 fullprocess.py apitrigger")
+
+    return jsonify(data['fields'])
 
 @app.route("/prediction", methods=['POST', 'OPTIONS'])
 def predict():

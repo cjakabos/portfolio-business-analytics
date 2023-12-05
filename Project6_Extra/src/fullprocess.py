@@ -4,6 +4,7 @@ import sys
 import logging
 import pandas as pd
 from sklearn.metrics import f1_score
+import psycopg as pg
 
 import scoring
 import training
@@ -13,32 +14,47 @@ import deployment
 import diagnostics
 from config import INPUT_FOLDER_PATH, PROD_DEPLOYMENT_PATH, DATA_PATH
 
-logging.basicConfig(stream=sys.stdout, level=logging.INFO)
+logging.basicConfig(stream=sys.stdout, level=logging.DEBUG)
 
 
 def main():
-    # Check and read new data
-    logging.info("Checking for new data")
 
-    # First, read ingestedfiles.txt
-    with open(os.path.join(PROD_DEPLOYMENT_PATH, "ingestedfiles.txt")) as file:
-        ingested_files = {line.strip('\n') for line in file.readlines()[1:]}
+    ###  1. see if API trigger mode with DB or command line mode with csv
 
-    # Second, determine whether the source data folder has files that aren't
-    # listed in ingestedfiles.txt
-    source_files = set(os.listdir(INPUT_FOLDER_PATH))
+    if (sys.argv[1] == 'apitrigger'):
+        logging.info("Running in API trigger mode")
+        connection = pg.connect("dbname='riskdb' user='riskmaster' host='127.0.0.1' port='5432' password='apetite'")
+        data_df = pd.read_sql('select * from test', connection)
+        #print(data_df.to_string())
 
-    # Deciding whether to proceed, part 1
-    # If you found new data, you should proceed. otherwise, do end the process
-    # here
-    if len(source_files.difference(ingested_files)) == 0:
-        logging.info("No new data found")
-        return None
+    else:
+        logging.info("Running in command line mode")
+        # Check and read new data
+        logging.info("Checking for new data")
 
-    # Ingesting new data
-    logging.info("Ingesting new data")
-    ingestion.merge_multiple_dataframe()
+        # First, read ingestedfiles.txt
+        with open(os.path.join(PROD_DEPLOYMENT_PATH, "ingestedfiles.txt")) as file:
+            ingested_files = {line.strip('\n') for line in file.readlines()[1:]}
 
+        # Second, determine whether the source data folder has files that aren't
+        # listed in ingestedfiles.txt
+        source_files = set(os.listdir(INPUT_FOLDER_PATH))
+
+        # Deciding whether to proceed, part 1
+        # If you found new data, you should proceed. otherwise, do end the process
+        # here
+        if len(source_files.difference(ingested_files)) == 0:
+            logging.info("No new data found")
+            return None
+
+        # Ingesting new data
+        logging.info("Ingesting new data")
+        ingestion.merge_multiple_dataframe()
+
+        data_df = pd.read_csv(os.path.join(DATA_PATH, 'finaldata.csv'))
+
+    print("Checking for model drift")
+    ###  2. Common part for scripted and API runs
     # Checking for model drift
     logging.info("Checking for model drift")
 
@@ -48,7 +64,6 @@ def main():
         deployed_score = re.findall(r'\d*\.?\d+', file.read())[0]
         deployed_score = float(deployed_score)
 
-    data_df = pd.read_csv(os.path.join(DATA_PATH, 'finaldata.csv'))
     y_df = data_df.pop('exited')
     X_df = data_df.drop(['corporation'], axis=1)
 

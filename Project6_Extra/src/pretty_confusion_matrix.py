@@ -21,6 +21,7 @@ from matplotlib.collections import QuadMesh
 
 def get_new_fig(fn, figsize=[9, 9]):
     """ Init graphics """
+    plt.switch_backend('Agg')
     fig1 = plt.figure(fn, figsize)
     ax1 = fig1.gca()  # Get Current Axis
     ax1.cla()  # clear existing plot

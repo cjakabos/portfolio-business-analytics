@@ -12,10 +12,6 @@ This project dependencies is available in the ```requirements.txt``` file.
 ## Installation
 Use the package manager [pip](https://pip.pypa.io/en/stable/) to install the dependencies from the ```requirements.txt```. Its recommended to install it in a separate [virtual environment](https://virtualenv.pypa.io/en/latest/).
 
-```bash
-pip3 install -r requirements.txt
-```
-
 ## Project Structure
 ```bash
 📦Dynamic-Risk-Assessment-System
@@ -54,6 +50,7 @@ pip3 install -r requirements.txt
  ┃ ┣ 📜app.py                       # Flask app
  ┃ ┣ 📜config.py                    # Config file for the project which depends on config.json
  ┃ ┣ 📜deployment.py                # Model deployment script
+ ┃ ┣ 📜dbtest.py                    # DB setup test script
  ┃ ┣ 📜diagnostics.py               # Model diagnostics script
  ┃ ┣ 📜fullprocess.py               # Process automation
  ┃ ┣ 📜ingestion.py                 # Data ingestion script
@@ -80,7 +77,10 @@ pip3 install -r requirements.txt
 ## Usage
 
 ### 0- Run Flask App in separate terminal, run the rest of the steps in another terminal
-```python
+```bash
+virtualenv venv
+source venv/bin/active
+pip3 install -r requirements.txt
 python3 app.py
 ```
 
@@ -95,8 +95,11 @@ python3 app.py
 ```
 
 ### 2- Run data ingestion
-```python
+```bash
 cd src
+virtualenv venv2
+source venv2/bin/active
+pip3 install -r requirements.txt
 python3 ingestion.py
 ```
 Artifacts output:
@@ -106,7 +109,10 @@ data/ingesteddata/ingestedfiles.txt
 ```
 
 ### 3- Model training
-```python
+```bash
+virtualenv venv2
+source venv2/bin/active
+pip3 install -r requirements.txt
 python3 training.py
 ```
 Artifacts output:
@@ -115,7 +121,10 @@ models/practicemodels/trainedmodel.pkl
 ```
 
 ###  4- Model scoring 
-```python
+```bash
+virtualenv venv2
+source venv2/bin/active
+pip3 install -r requirements.txt
 python3 scoring.py
 ```
 Artifacts output: 
@@ -124,7 +133,10 @@ models/practicemodels/latestscore.txt
 ``` 
 
 ### 5- Model deployment
-```python
+```bash
+virtualenv venv2
+source venv2/bin/active
+pip3 install -r requirements.txt
 python3 deployment.py
 ```
 Artifacts output:
@@ -135,12 +147,15 @@ model/prod_deployment_path/latestscore.txt
 ``` 
 
 ### 6- Run diagnostics
-```python
+```bash
+virtualenv venv2
+source venv2/bin/active
+pip3 install -r requirements.txt
 python3 diagnostics.py
 ```
 
 ### 7- Run reporting
-```python
+```bash
 python3 reporting.py
 ```
 Artifacts output:
@@ -150,7 +165,10 @@ models/practicemodels/summary_report.pdf
 ```
 
 ### 8- Run API endpoints
-```python
+```bash
+virtualenv venv2
+source venv2/bin/active
+pip3 install -r requirements.txt
 python3 apicalls.py
 ```
 Artifacts output:
@@ -169,8 +187,11 @@ models/practicemodels/apireturns.txt
 ```
 
 ### 10- Full process automation
-```python
-python3 fullprocess.py
+```bash
+virtualenv venv2
+source venv2/bin/active
+pip3 install -r requirements.txt
+python3 fullprocess.py scripted
 ```
 ### 11- Cron job
 
@@ -193,3 +214,48 @@ View crontab file
 sudo crontab -l
 ```
 
+Moving from local csv files to DB version:
+Install Postgres, on mac:
+
+```bash
+brew install postgresql@15
+brew services start postgresql@15
+echo 'export PATH=/opt/homebrew/opt/postgresql@15/bin/postgres:$PATH  ' >> ~/.zshrc
+```
+
+Start postrgres and create riskdb
+
+```
+psql postgres
+
+CREATE DATABASE riskdb;
+
+CREATE USER riskmaster WITH PASSWORD 'apetite';
+
+GRANT ALL ON DATABASE riskdb TO riskmaster;
+
+ALTER DATABASE riskdb OWNER TO riskmaster;
+
+GRANT ALL PRIVILEGES ON DATABASE riskdb TO riskmaster;
+
+\c riskdb riskmaster
+
+GRANT ALL ON SCHEMA public TO riskmaster;
+
+exit
+```
+
+Example of sending a new customer request, this will triger the full Risk scoring pipeline:
+```bash
+curl -H "Content-Type: application/json" -X POST -d \
+'{
+    "fields": {
+        "corporation": "Risky AB",
+        "lastmonth_activity": 100,
+        "lastyear_activity": 1200,
+        "number_of_employees": 16,
+        "exited": 0
+    }
+}' \
+http://127.0.0.1:8000/ingest
+```

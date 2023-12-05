@@ -6,3 +6,6 @@ reportlab==4.0.7
 seabird==0.12.0
 seaborn==0.13.0
 pip-outdated==0.6.0
+psycopg==3.1.14
+psycopg-binary==3.1.14
+sqlalchemy==2.0.23
