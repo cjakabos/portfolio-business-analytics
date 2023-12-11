@@ -1,12 +1,13 @@
 # Portfolio-business-analytics
 
 The [Predictive Analytics for Business](https://www.udacity.com/course/predictive-analytics-for-business-nanodegree--nd008t) Nanodegree program is designed to master a scientific approach to solving problems with data and apply predictive analytics and business intelligence to solve real-world problems. The program projects are done in Alteryx, a tool that prepares, blends, and analyzes data quickly, and Tableau, a powerful data visualization platform.  
-As an extracurricular activity, I have also created a Machine Learning pipeline for Dynamic Risk Scoring (with Python, pandas, scikit-learn and matplotlib), where the model continuously re-trained and redeployed, based on newly added data, thus providing continuous monitoring, adaptive scoring and reporting. Details:  
-[Check Project - Machine learning system for Risk Assessment](Project6_Extra/README.md) 
+As an extracurricular activity, I have also created a Machine Learning pipeline for Customer Segmentation (with Python, pandas, scikit-learn and matplotlib), where the ML model is continously rerun  based on newly added data, thus providing continuous monitoring, scoring and reporting. Details:  
+[Check Project - Machine learning system for Customer Segmentation](Project6_Extra/README.md)
+![](Project6_Extra/customers/Screen2.png)
+The main development will be [continued here](https://github.com/cjakabos/portfolio-web/tree/main/ml-pipeline)
 
-
-# CERTIFICATE OF COMPLETITION
-  [Click here for checking the Nanodegree certificate](https://confirm.udacity.com/e/3ac984b2-6128-11ee-a6fe-9be76f9bc811)
+## CERTIFICATE OF COMPLETITION
+[Click here for checking the Nanodegree certificate](https://confirm.udacity.com/e/3ac984b2-6128-11ee-a6fe-9be76f9bc811)
 
 ## 1. Data Analytics  
 Data analysis business contex, analytic frameworks and linear regression for predicting profitability.  
