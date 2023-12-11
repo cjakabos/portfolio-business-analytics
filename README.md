@@ -41,11 +41,18 @@ Predictive model comparison and Scoring
 ETS and ARIMA forecasting
 ![](Project5/Project5_3.png)  
 
-## 6. Extra project: Machine learning system for Risk Assessment
+## 6. Extra project: Machine learning system for Customer Segmentation
 
-This is a Machine Learning Model Scoring and Monitoring project. The problem is to create, deploy, and monitor a risk assessment ML model that will estimate the attrition risk of each of the company's clients. Also setting up processes to re-train, re-deploy, monitor and report on the ML model.
-[Check Project - Machine learning system for Risk Assessment](Project6_Extra/README.md)  
+This is a Machine Learning project for Customer Segmentation. The problem is to create, deploy, and monitor a customer segmentation ML model with database integration, API services and React frontend.
+
+You are the owner of a shop. It doesn't matter if you own an e-commerce or a supermarket. It doesn't matter if it is a small shop or a huge company such as Amazon or Netflix, it's better to know your customers.
+
+You were able to collect basic data about your customers holding a membership card such as Customer ID, age, gender, annual income, and spending score. This last one is a score based on customer behavior and purchasing data. There are some new products on the market that you are interested in selling. But you want to target a specific type of clients for each one of the products.
+
+Machine learning comes in handy for this task. Particularly, clustering, the most important unsupervised learning problem, is able to create categories grouping similar individuals. These categories are called clusters. A cluster is a collection of points in a dataset. These points are more similar between them than they are to points belonging to other clusters. Distance-based clustering groups the points into some number of clusters such that distances within the cluster should be small while distances between clusters should be large.
+
+[Check Project - Machine learning system for Customer Segmentation](Project6_Extra/README.md)  
   
 <p align="center">
-	<img src="Project6_Extra/images/general_view.png" >
+	<img src="Project6_Extra/customers/Screen.png" >
 </p>  
